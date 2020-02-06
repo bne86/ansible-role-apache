@@ -4,3 +4,5 @@
     name: "{{ apache_packages }}"
     state: "{{ apache_packages_state }}"
     enablerepo: "{{ apache_enablerepo | default(omit, true) }}"
+  tags:
+    - apache
