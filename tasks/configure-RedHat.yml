@@ -14,6 +14,7 @@
   stat: path={{ item.certificate_file }}
   register: apache_ssl_certificates
   with_items: "{{ apache_vhosts_ssl }}"
+  no_log: True
   tags:
     - apache
 
@@ -23,9 +24,10 @@
     dest: "{{ apache_conf_path }}/{{ apache_vhosts_filename }}"
     owner: root
     group: root
-    mode: 0644
+    mode: 0640
   notify: restart apache
   when: apache_create_vhosts | bool
+  no_log: True
   tags:
     - apache
 
