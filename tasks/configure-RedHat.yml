@@ -14,6 +14,7 @@
   stat: path={{ item.certificate_file }}
   register: apache_ssl_certificates
   with_items: "{{ apache_vhosts_ssl }}"
+  no_log: True
   tags:
     - apache
 
